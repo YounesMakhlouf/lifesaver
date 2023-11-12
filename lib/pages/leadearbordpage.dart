@@ -36,7 +36,7 @@ class UserItem extends StatelessWidget {
     return Container(
         padding: const EdgeInsets.only(right: 20, left: 20, bottom: 5, top: 5),
         child: Card(
-          elevation: 4,
+          elevation: 10,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
@@ -67,19 +67,25 @@ class UserItem extends StatelessWidget {
                     )
                   ],
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Stack(
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: Image.asset(
                         'images/blood.png',
-                        width: 20,
+                        width: 35,
                       ),
                     ),
-                    Text(
-                      "${user.points}",
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    Positioned(
+                      right: 15,
+                      bottom: 5,
+                      child: Text(
+                        '${user.points}',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ],
                 ),

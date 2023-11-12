@@ -104,7 +104,7 @@ User kotkot4 = User(
     cin: 11003345,
     age: 21,
     groupeSanguin: "AB",
-    points: 2000);
+    points: 100);
 List<User> users = [kotkot4, kotkot3, kotkot2, kotkot];
 
 var e = Event(
