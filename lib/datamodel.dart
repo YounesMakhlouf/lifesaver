@@ -1,14 +1,18 @@
 class User {
   final String name;
-  final int CIN;
+  final int cin;
   final int age;
+  final String image;
   final String groupeSanguin;
+  int points = 0;
 
   User(
       {required this.name,
-      required this.CIN,
+      required this.cin,
       required this.age,
-      required this.groupeSanguin});
+      required this.groupeSanguin,
+      required this.points,
+      required this.image});
 }
 
 class DonationHistory {
@@ -73,8 +77,35 @@ List<DonationHistory> donationHistory = [
   ),
 ];
 
-User kotkot =
-    User(name: "Salma Bouabidi", CIN: 11003345, age: 21, groupeSanguin: "AB");
+User kotkot = User(
+    name: "Salma Bouabidi",
+    image: "images/avatar2.png",
+    cin: 11003345,
+    age: 21,
+    groupeSanguin: "AB",
+    points: 20);
+User kotkot2 = User(
+    name: "Iron Man",
+    image: "images/avatar.png",
+    cin: 11003345,
+    age: 21,
+    groupeSanguin: "AB",
+    points: 40);
+User kotkot3 = User(
+    name: "Ahmed Mohsen",
+    image: "images/avatar3.png",
+    cin: 11003345,
+    age: 21,
+    groupeSanguin: "AB",
+    points: 60);
+User kotkot4 = User(
+    name: "Younes Makhlouf",
+    image: "images/avatar.png",
+    cin: 11003345,
+    age: 21,
+    groupeSanguin: "AB",
+    points: 2000);
+List<User> users = [kotkot4, kotkot3, kotkot2, kotkot];
 
 var e = Event(
     name: "ija tbara3 sahbi",

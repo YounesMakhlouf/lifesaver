@@ -1,3 +1,4 @@
+import 'package:blood_donation/pages/leadearbordpage.dart';
 import 'package:flutter/material.dart';
 
 import '../datamodel.dart';
@@ -22,26 +23,26 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   height: 120,
                   width: 120,
                   child: Stack(children: [
                     CircleAvatar(
                       radius: 60,
-                      backgroundImage: AssetImage('images/avatar.png'),
+                      backgroundImage: AssetImage(kotkot.image),
                     ),
-                    Positioned(
+                    const Positioned(
                       bottom: 0,
                       right: 0,
                       width: 40,
                       child: Image(image: AssetImage('images/blood.png')),
                     ),
                     Positioned(
-                      right: 10,
+                      right: 8,
                       bottom: 5,
                       child: Text(
-                        '20',
-                        style: TextStyle(
+                        '${kotkot.points}',
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -67,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ],
                     ),
                     Text(
-                      "CIN: ${kotkot.CIN}",
+                      "cin: ${kotkot.cin}",
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     Text(
@@ -88,7 +89,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ProfilePage()), //TODO: Change this
+                      builder: (context) =>
+                          const LeaderboardPage()), //TODO: Change this
                 );
               },
               child: const Text("Demander un don")),
@@ -97,7 +99,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ProfilePage()), //TODO: Change this
+                      builder: (context) =>
+                          const ProfilePage()), //TODO: Change this
                 );
               },
               child: const Text("Suivre mes demandes")),
