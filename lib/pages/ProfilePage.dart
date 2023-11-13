@@ -1,4 +1,6 @@
-import 'package:blood_donation/pages/leadearbordpage.dart';
+import 'package:blood_donation/pages/demandeDon.dart';
+import 'package:blood_donation/pages/demandesdonpage.dart';
+import 'package:blood_donation/pages/qrcodepage.dart';
 import 'package:flutter/material.dart';
 
 import '../datamodel.dart';
@@ -61,9 +63,18 @@ class _ProfilePageState extends State<ProfilePage> {
                           kotkot.name,
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 5.0),
-                          child: Icon(Icons.qr_code),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const QrCodePage()),
+                            );
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 5.0),
+                            child: Icon(Icons.qr_code),
+                          ),
                         ),
                       ],
                     ),
@@ -88,9 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          const LeaderboardPage()), //TODO: Change this
+                  MaterialPageRoute(builder: (context) => const DemandeDon()),
                 );
               },
               child: const Text("Demander un don")),
@@ -98,9 +107,7 @@ class _ProfilePageState extends State<ProfilePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          const ProfilePage()), //TODO: Change this
+                  MaterialPageRoute(builder: (context) => const DemandesPage()),
                 );
               },
               child: const Text("Suivre mes demandes")),

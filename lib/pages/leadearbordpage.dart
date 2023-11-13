@@ -8,7 +8,8 @@ class LeaderboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return Scaffold(
+        body: ListView.builder(
       itemCount: users.length,
       itemBuilder: (context, index) {
         final user = users[index];
@@ -21,7 +22,7 @@ class LeaderboardPage extends StatelessWidget {
               );
             });
       },
-    );
+    ));
   }
 }
 

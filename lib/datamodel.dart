@@ -38,6 +38,13 @@ class Event {
       required this.description});
 }
 
+class Demande {
+  String date;
+  String description;
+
+  Demande({required this.date, required this.description});
+}
+
 class Category {
   String name;
   List<Reward> rewards;
@@ -108,15 +115,15 @@ User kotkot4 = User(
 List<User> users = [kotkot4, kotkot3, kotkot2, kotkot];
 
 var e = Event(
-    name: "ija tbara3 sahbi",
-    location: "INSAT",
+    name: "Chaque goutte compte",
+    location: "INSAT, Centre Urbain Nord",
     date: "23-11-2023",
     image: "images/event1.png",
     description:
         "L'événement XXX est une initiative de don du sang organisée par le Club XXX en collaboration avec le Centre National de Transfusion Sanguine. Prévu pour le [date] à [lieu]. Rejoignez-nous pour faire une différence significative");
 var e2 = Event(
-    name: "ija tbara3 marokhra sahbi",
-    location: "INSAT nab9a n3awedlek fiha?",
+    name: "Sauvons des vies ensemble",
+    location: "ENIT",
     date: "24-11-2023",
     image: "images/event2.png",
     description:
@@ -148,3 +155,10 @@ var r3 = Reward(
         "Obtenez un accès gratuit en présentant simplement votre QR code ou en utilisant le code promo à votre arrivée à l'espace de cours. Offre valable jusqu'au 30/11/2023.");
 
 List<Reward> rewards = [r, r2, r3];
+
+Demande d1 = Demande(
+    date: "24-08-2023",
+    description:
+        "[NOM] : Agé de 8 ans, combat le cancer et a besoin de dons de sang AB. Soutenez-le.");
+
+List<Demande> demandes = [d1, d1, d1, d1];

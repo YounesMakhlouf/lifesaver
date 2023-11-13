@@ -1,10 +1,15 @@
+import 'package:blood_donation/pages/leadearbordpage.dart';
+import 'package:blood_donation/pages/main1page.dart';
+import 'package:blood_donation/pages/main2page.dart';
+import 'package:blood_donation/pages/main3page.dart';
+import 'package:blood_donation/pages/signin.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/GiftsPage.dart';
 import 'pages/HomePage.dart';
 import 'pages/NotificationsPage.dart';
 import 'pages/ProfilePage.dart';
-import 'pages/SearchPage.dart';
+import 'pages/loadingpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +27,15 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      initialRoute: '/loading', // Set the initial route to LoadingPage
+      routes: {
+        '/loading': (context) => const LoadingPage(),
+        '/main1': (context) => const Main1Page(),
+        '/main2': (context) => const Main2Page(),
+        '/main3': (context) => const Main3Page(),
+        '/signin': (context) => const SigninPage(),
+        '/myhomepage': (context) => const MyHomePage(),
+      },
     );
   }
 }
@@ -45,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
         currentWidgetPage = const HomePage();
         break;
       case 1:
-        currentWidgetPage = const SearchPage();
+        currentWidgetPage = const LeaderboardPage();
         break;
       case 2:
         currentWidgetPage = const GiftsPage();
@@ -59,8 +72,18 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Center(child: Image.asset("images/blood.png")),
+        backgroundColor: Colors.red.shade900,
+        title: const Center(
+            child: Text("Bonjour Younes",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22))),
+        elevation: 20,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(100),
+                bottomRight: Radius.circular(100))),
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentPageIndex,
@@ -69,10 +92,11 @@ class _MyHomePageState extends State<MyHomePage> {
             currentPageIndex = newIndex;
           });
         },
-        // labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: "Acceuil"),
-          NavigationDestination(icon: Icon(Icons.search), label: "Recherche"),
+          NavigationDestination(
+              icon: Icon(Icons.leaderboard), label: "Classement"),
           NavigationDestination(icon: Icon(Icons.redeem), label: "Cadeaux"),
           NavigationDestination(
               icon: Icon(Icons.notifications), label: "Notifications"),

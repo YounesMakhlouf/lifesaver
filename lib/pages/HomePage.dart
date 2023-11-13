@@ -9,19 +9,34 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: events.length,
-      itemBuilder: (context, index) {
-        final event = events[index];
-        return EventItem(
-            event: event,
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfilePage()),
-              );
-            });
-      },
+    return Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(top: 8.0),
+          child: Card(
+              child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text("Faites un don aujourd'hui et gagnez 10 points !"),
+          )),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: events.length,
+            itemBuilder: (context, index) {
+              final event = events[index];
+              return EventItem(
+                  event: event,
+                  onPress: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProfilePage()),
+                    );
+                  });
+            },
+          ),
+        ),
+      ],
     );
   }
 }
@@ -36,50 +51,46 @@ class EventItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.all(8),
-        child: Card(
-          elevation: 4,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset("${event.image}"),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => EventPage(event: event)),
+            );
+          },
+          child: Card(
+            elevation: 4,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(event.image),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(bottom: 8.0),
                         child: Text(
                           event.name,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontSize: 25),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(event.location),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(event.date),
-                      ),
+                      Row(children: [
+                        const Padding(
+                          padding: EdgeInsets.only(right: 8.0),
+                          child: Icon(Icons.map, color: Colors.red),
+                        ),
+                        Text(
+                          event.location,
+                          style: Theme.of(context).textTheme.labelLarge,
+                        )
+                      ]),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 16.0),
-                    child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => EventPage(event: event)),
-                          );
-                        },
-                        child: const Text("See More")),
-                  ),
-                ],
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ));
   }

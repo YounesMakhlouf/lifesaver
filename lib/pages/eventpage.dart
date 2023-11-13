@@ -1,3 +1,4 @@
+import 'package:blood_donation/pages/participatedpage.dart';
 import 'package:flutter/material.dart';
 
 import '../datamodel.dart';
@@ -16,7 +17,7 @@ class EventPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset("${event.image}"),
+              Image.asset(event.image),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Card(
@@ -38,18 +39,26 @@ class EventPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Row(children: [
-                              Icon(Icons.location_on),
-                              Text(
-                                event.location,
-                                style: Theme.of(context).textTheme.labelLarge,
+                              const Icon(Icons.location_on, color: Colors.red),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4.0),
+                                child: Text(
+                                  event.location,
+                                  style: Theme.of(context).textTheme.labelLarge,
+                                ),
                               )
                             ]),
                             Row(
                               children: [
-                                Icon(Icons.local_taxi),
-                                Text(
-                                  "7 minutes",
-                                  style: Theme.of(context).textTheme.labelLarge,
+                                const Icon(Icons.local_taxi,
+                                    color: Colors.grey),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 4.0),
+                                  child: Text(
+                                    "7 minutes",
+                                    style:
+                                        Theme.of(context).textTheme.labelLarge,
+                                  ),
                                 ),
                               ],
                             ),
@@ -63,19 +72,27 @@ class EventPage extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.event),
-                                Text(
-                                  event.date,
-                                  style: Theme.of(context).textTheme.labelLarge,
+                                const Icon(Icons.event, color: Colors.red),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 4.0),
+                                  child: Text(
+                                    event.date,
+                                    style:
+                                        Theme.of(context).textTheme.labelLarge,
+                                  ),
                                 ),
                               ],
                             ),
                             Row(
                               children: [
-                                Icon(Icons.groups),
-                                Text(
-                                  "250 participants",
-                                  style: Theme.of(context).textTheme.labelLarge,
+                                const Icon(Icons.groups, color: Colors.grey),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 4.0),
+                                  child: Text(
+                                    "250 participants",
+                                    style:
+                                        Theme.of(context).textTheme.labelLarge,
+                                  ),
                                 ),
                               ],
                             )
@@ -90,7 +107,8 @@ class EventPage extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
                   event.description,
-                  style: TextStyle(fontWeight: FontWeight.bold, height: 3.0),
+                  style:
+                      const TextStyle(fontWeight: FontWeight.bold, height: 3.0),
                 ),
               ),
               Expanded(
@@ -106,7 +124,7 @@ class EventPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => EventPage(event: event)),
+                                builder: (context) => const ParticipatedPage()),
                           );
                         },
                         child: const Text("Participer")),

@@ -1,3 +1,4 @@
+import 'package:blood_donation/pages/qrcodepage.dart';
 import 'package:flutter/material.dart';
 
 import '../datamodel.dart';
@@ -101,7 +102,7 @@ class GiftPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => GiftPage(reward: reward)),
+                                builder: (context) => const QrCodePage()),
                           );
                         },
                         child: const Text("Profiter")),
