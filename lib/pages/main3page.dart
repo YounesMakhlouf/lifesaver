@@ -1,3 +1,4 @@
+import 'package:blood_donation/pages/loginpage.dart';
 import 'package:blood_donation/pages/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -49,7 +50,7 @@ class Main3Page extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SigninPage()),
+                              builder: (context) => const LoginPage()),
                         );
                       },
                       child: const Text("Se connecter")),

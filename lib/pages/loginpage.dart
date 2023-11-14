@@ -1,11 +1,8 @@
 import 'package:blood_donation/main.dart';
 import 'package:flutter/material.dart';
 
-import '../datamodel.dart';
-import '../bloudGroupDropdownmenu.dart';
-
-class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +15,7 @@ class SigninPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.red.shade900,
           title: const Center(
-              child: Text("Créer un compte",
+              child: Text("Bienvenue",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -50,36 +47,20 @@ class MyCustomForm extends StatefulWidget {
 
 // Create a corresponding State class. This class holds data related to the form.
 class MyCustomFormState extends State<MyCustomForm> {
-  final nameController = TextEditingController();
   final cinController = TextEditingController();
-  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
-    nameController.dispose();
+    passwordController.dispose();
     cinController.dispose();
-    emailController.dispose();
     super.dispose();
   }
 
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
   final _formKey = GlobalKey<FormState>();
-  DateTime selectedDate = DateTime.now();
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(1900),
-        lastDate: DateTime(2024));
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,26 +69,7 @@ class MyCustomFormState extends State<MyCustomForm> {
       key: _formKey,
       child: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextFormField(
-                controller: nameController,
-                keyboardType: TextInputType.name,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-                decoration: const InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: 'Entrer votre nom et prenom',
-                  labelText: 'Nom complet',
-                ),
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
@@ -121,16 +83,16 @@ class MyCustomFormState extends State<MyCustomForm> {
                 },
                 decoration: const InputDecoration(
                   icon: Icon(Icons.perm_identity),
-                  hintText: 'CIN/Passeport',
-                  labelText: 'CIN/Passeport',
+                  hintText: 'CIN',
+                  labelText: 'CIN',
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                controller: emailController,
+                controller: passwordController,
+                keyboardType: TextInputType.visiblePassword,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter some text';
@@ -138,44 +100,24 @@ class MyCustomFormState extends State<MyCustomForm> {
                   return null;
                 },
                 decoration: const InputDecoration(
-                  icon: Icon(Icons.mail),
-                  hintText: 'Email',
-                  labelText: 'Email',
+                  icon: Icon(Icons.password),
+                  hintText: 'Mot de passe',
+                  labelText: 'Mot de passe',
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 16.0),
-              child: SizedBox(height: 105, child: BloodGroupDropdownMenu()),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(children: <Widget>[
-                const Text("Date de naissance"),
-                Text("${selectedDate.toLocal()}".split(' ')[0]),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                ElevatedButton(
-                  onPressed: () => _selectDate(context),
-                  child: const Text('Selectionner la date'),
-                ),
-              ]),
-            ),
-            Center(
-              child: Container(
-                  padding: const EdgeInsets.only(top: 40.0, bottom: 5),
+            Container(
+                padding: const EdgeInsets.only(top: 40.0, bottom: 5),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size.fromHeight(50),
                     ),
-                    child: const Text('Valider'),
+                    child: const Text('Se connecter'),
                     onPressed: () {
                       // Validate returns true if the form is valid, or false otherwise.
                       if (_formKey.currentState!.validate()) {
-                        currentUser.name = nameController.text;
-                        currentUser.email = emailController.text;
-                        currentUser.cin = int.parse(cinController.text);
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
@@ -183,8 +125,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                         );
                       }
                     },
-                  )),
-            ),
+                  ),
+                )),
           ],
         ),
       ),

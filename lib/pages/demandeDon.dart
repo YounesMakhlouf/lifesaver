@@ -65,6 +65,7 @@ class MyCustomFormState extends State<MyCustomForm> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
+                keyboardType: TextInputType.name,
                 decoration: const InputDecoration(
                   icon: Icon(Icons.person),
                   hintText: 'Entrer le nom du bénéficiaire',
@@ -79,6 +80,7 @@ class MyCustomFormState extends State<MyCustomForm> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
+                keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   icon: Icon(Icons.person),
                   hintText: 'Age',
@@ -89,10 +91,11 @@ class MyCustomFormState extends State<MyCustomForm> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
+                keyboardType: TextInputType.phone,
                 decoration: const InputDecoration(
                   icon: Icon(Icons.phone),
-                  hintText: 'Enter a phone number',
-                  labelText: 'Phone',
+                  hintText: 'Entrer un numéro de téléphone',
+                  labelText: 'Téléphone',
                 ),
               ),
             ),
@@ -113,12 +116,16 @@ class MyCustomFormState extends State<MyCustomForm> {
                       padding: const EdgeInsets.only(top: 40.0, bottom: 5),
                       child: ElevatedButton(
                         child: const Text('Valider la demande'),
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () => Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ProfilePage()),
+                        ),
                       )),
                   ElevatedButton(
                       child: const Text('Annuler'),
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const ProfilePage()),
