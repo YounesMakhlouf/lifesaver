@@ -19,7 +19,7 @@ class Main3Page extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.all(35.0),
                   child: Text(
-                    "Faites un geste simple qui a un impact éternel. Rejoignez-nous dans cette mission de générosité et de vie.",
+                    "Saisissez l'opportunité de promouvoir vos événements de don du sang. Partagez vos initiatives, rassemblez la communauté et œuvrez ensemble pour un impact concret.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.red,

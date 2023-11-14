@@ -19,7 +19,7 @@ class Main2Page extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.all(35.0),
                   child: Text(
-                    "Faites un geste simple qui a un impact éternel. Rejoignez-nous dans cette mission de générosité et de vie.",
+                    "Découvrez les avantages spéciaux qui vous attendent en tant que donneur dévoué : récompenses exclusives, accès à des événements réservés, et bien plus encore.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.red,
@@ -48,7 +48,8 @@ class Main2Page extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => const Main3Page()),
+                          MaterialPageRoute(
+                              builder: (context) => const Main3Page()),
                         );
                       },
                       child: const Text("SUIVANT")),
