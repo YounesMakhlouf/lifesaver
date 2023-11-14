@@ -1,4 +1,5 @@
-import 'package:blood_donation/pages/leadearbordpage.dart';
+import 'package:blood_donation/datamodel.dart';
+import 'package:blood_donation/pages/leadearboardpage.dart';
 import 'package:blood_donation/pages/main1page.dart';
 import 'package:blood_donation/pages/main2page.dart';
 import 'package:blood_donation/pages/main3page.dart';
@@ -73,9 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red.shade900,
-        title: const Center(
-            child: Text("Bonjour Younes",
-                style: TextStyle(
+        title: Center(
+            child: Text("Bonjour ${currentUser.name}",
+                style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 22))),

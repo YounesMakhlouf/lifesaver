@@ -31,7 +31,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Stack(children: [
                     CircleAvatar(
                       radius: 60,
-                      backgroundImage: AssetImage(kotkot.image),
+                      backgroundImage: AssetImage(currentUser.image),
                     ),
                     const Positioned(
                       bottom: 0,
@@ -43,7 +43,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       right: 8,
                       bottom: 5,
                       child: Text(
-                        '${kotkot.points}',
+                        '${currentUser.points}',
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -60,7 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Row(
                       children: [
                         Text(
-                          kotkot.name,
+                          currentUser.name,
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
                         GestureDetector(
@@ -79,15 +79,15 @@ class _ProfilePageState extends State<ProfilePage> {
                       ],
                     ),
                     Text(
-                      "cin: ${kotkot.cin}",
+                      "cin: ${currentUser.cin}",
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     Text(
-                      "Age: ${kotkot.age}",
+                      "Age: ${currentUser.age}",
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     Text(
-                      "Groupe sanguin: ${kotkot.groupeSanguin}",
+                      "Groupe sanguin: ${currentUser.groupeSanguin}",
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                   ],

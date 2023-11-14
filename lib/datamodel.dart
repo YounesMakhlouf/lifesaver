@@ -1,9 +1,10 @@
 class User {
-  final String name;
-  final int cin;
-  final int age;
-  final String image;
-  final String groupeSanguin;
+  String name;
+  int cin;
+  int age;
+  String image;
+  String? email;
+  String groupeSanguin;
   int points = 0;
 
   User(
@@ -12,6 +13,7 @@ class User {
       required this.age,
       required this.groupeSanguin,
       required this.points,
+      this.email,
       required this.image});
 }
 
@@ -137,14 +139,14 @@ var r = Reward(
     location: "Monoprix",
     image: "images/reward.png",
     description:
-        "Obtenez un accès gratuit en présentant simplement votre QR code ou en utilisant le code promo à votre arrivée à l'espace de cours. Offre valable jusqu'au 30/11/2023.");
+        "Profitez d'un bon de récudtion en présentant simplement votre QR code ou en utilisant le code promo. Offre valable jusqu'au 30/11/2023.");
 var r2 = Reward(
     cost: 20,
     name: "Free delivery",
     location: "Glovo",
     image: "images/reward2.png",
     description:
-        "Obtenez un accès gratuit en présentant simplement votre QR code ou en utilisant le code promo à votre arrivée à l'espace de cours. Offre valable jusqu'au 30/11/2023.");
+        "Obtenez une livraison gratuite en présentant simplement votre code promo. Offre valable jusqu'au 30/11/2023.");
 
 var r3 = Reward(
     cost: 20,
@@ -162,3 +164,5 @@ Demande d1 = Demande(
         "[NOM] : Agé de 8 ans, combat le cancer et a besoin de dons de sang AB. Soutenez-le.");
 
 List<Demande> demandes = [d1, d1, d1, d1];
+
+final User currentUser = kotkot4;
