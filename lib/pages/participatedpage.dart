@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:blood_donation/pages/ProfilePage.dart';
 import 'package:flutter/material.dart';
 
 class ParticipatedPage extends StatefulWidget {

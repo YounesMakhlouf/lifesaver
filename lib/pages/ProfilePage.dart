@@ -13,10 +13,10 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  String? selectedDonationHistory;
-
   @override
   Widget build(BuildContext context) {
+    final _donationHistory = currentUser.donationHistory;
+
     return Scaffold(
       body: Column(
         children: [
@@ -118,19 +118,20 @@ class _ProfilePageState extends State<ProfilePage> {
             "Historique des dons:",
             style: Theme.of(context).textTheme.headlineSmall,
           ),
-          SizedBox(
-            height: 300, // Specify a height for the ListView
-            child: ListView.builder(
-              itemCount: donationHistory.length,
-              itemBuilder: (context, index) {
-                final donation = donationHistory[index];
-                return ListTile(
-                  title: Text(donation.date),
-                  subtitle: Text(donation.name),
-                );
-              },
-            ),
-          ),
+          if (_donationHistory != null)
+            SizedBox(
+              height: 300, // Specify a height for the ListView
+              child: ListView.builder(
+                itemCount: currentUser.donationHistory!.length,
+                itemBuilder: (context, index) {
+                  final donation = currentUser.donationHistory?[index];
+                  return ListTile(
+                    title: Text(donation!.date),
+                    subtitle: Text(donation.name),
+                  );
+                },
+              ),
+            )
         ],
       ),
     );

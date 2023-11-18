@@ -6,6 +6,7 @@ class User {
   String? email;
   String groupeSanguin;
   int points = 0;
+  List<Donation>? donationHistory;
 
   User(
       {required this.name,
@@ -14,14 +15,15 @@ class User {
       required this.groupeSanguin,
       required this.points,
       this.email,
-      required this.image});
+      required this.image,
+      this.donationHistory});
 }
 
-class DonationHistory {
+class Donation {
   final String date;
   final String name;
 
-  DonationHistory({required this.date, required this.name});
+  Donation({required this.date, required this.name});
 }
 
 class Event {
@@ -71,16 +73,16 @@ class Reward {
 }
 
 // Declarations
-List<DonationHistory> donationHistory = [
-  DonationHistory(
+List<Donation> donationHistory = [
+  Donation(
     date: '2023-11-10',
     name: 'Centre national de transfusion sanguine, CTNS',
   ),
-  DonationHistory(
+  Donation(
     date: '2023-09-15',
     name: "Collecte de sang a l'INSAT",
   ),
-  DonationHistory(
+  Donation(
     date: '2023-07-20',
     name: 'Centre national de transfusion sanguine, CTNS',
   ),
@@ -92,7 +94,8 @@ User kotkot = User(
     cin: 11003345,
     age: 21,
     groupeSanguin: "AB",
-    points: 20);
+    points: 20,
+    donationHistory: donationHistory);
 User kotkot2 = User(
     name: "Iron Man",
     image: "images/avatar.png",
