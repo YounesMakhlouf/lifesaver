@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../bloudGroupDropdownmenu.dart';
-import 'ProfilePage.dart';
+import '../blood_group_dropdown_menu.dart';
+import 'profile_page.dart';
 
 class DemandeDon extends StatelessWidget {
   const DemandeDon({super.key});

@@ -1,8 +1,8 @@
 import 'package:blood_donation/main.dart';
 import 'package:flutter/material.dart';
 
-import '../datamodel.dart';
-import '../bloudGroupDropdownmenu.dart';
+import '../data_model.dart';
+import '../blood_group_dropdown_menu.dart';
 
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});

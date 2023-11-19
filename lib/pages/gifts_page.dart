@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../datamodel.dart';
-import 'ProfilePage.dart';
-import 'giftpage.dart';
+import '../data_model.dart';
+import 'profile_page.dart';
+import 'gift_page.dart';
 
 class GiftsPage extends StatelessWidget {
   const GiftsPage({super.key});

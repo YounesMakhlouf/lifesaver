@@ -1,12 +1,12 @@
-import 'package:blood_donation/pages/qrcodepage.dart';
+import 'package:blood_donation/pages/participated_page.dart';
 import 'package:flutter/material.dart';
 
-import '../datamodel.dart';
+import '../data_model.dart';
 
-class GiftPage extends StatelessWidget {
-  final Reward reward;
+class EventPage extends StatelessWidget {
+  final Event event;
 
-  const GiftPage({super.key, required this.reward});
+  const EventPage({super.key, required this.event});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class GiftPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(reward.image),
+              Image.asset(event.image),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Card(
@@ -28,7 +28,7 @@ class GiftPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            reward.name,
+                            event.name,
                             style: Theme.of(context).textTheme.headlineMedium,
                           ),
                         ),
@@ -39,18 +39,26 @@ class GiftPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Row(children: [
-                              const Icon(Icons.location_on),
-                              Text(
-                                reward.location,
-                                style: Theme.of(context).textTheme.labelLarge,
+                              const Icon(Icons.location_on, color: Colors.red),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4.0),
+                                child: Text(
+                                  event.location,
+                                  style: Theme.of(context).textTheme.labelLarge,
+                                ),
                               )
                             ]),
                             Row(
                               children: [
-                                const Icon(Icons.local_taxi),
-                                Text(
-                                  "7 minutes",
-                                  style: Theme.of(context).textTheme.labelLarge,
+                                const Icon(Icons.local_taxi,
+                                    color: Colors.grey),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 4.0),
+                                  child: Text(
+                                    "7 minutes",
+                                    style:
+                                        Theme.of(context).textTheme.labelLarge,
+                                  ),
                                 ),
                               ],
                             ),
@@ -64,16 +72,30 @@ class GiftPage extends StatelessWidget {
                           children: [
                             Row(
                               children: [
+                                const Icon(Icons.event, color: Colors.red),
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 8.0),
-                                  child: Image.asset(
-                                    'images/blood.png',
-                                    width: 20,
+                                  padding: const EdgeInsets.only(left: 4.0),
+                                  child: Text(
+                                    event.date,
+                                    style:
+                                        Theme.of(context).textTheme.labelLarge,
                                   ),
                                 ),
-                                Text("${reward.cost} points"),
                               ],
                             ),
+                            Row(
+                              children: [
+                                const Icon(Icons.groups, color: Colors.grey),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 4.0),
+                                  child: Text(
+                                    "250 participants",
+                                    style:
+                                        Theme.of(context).textTheme.labelLarge,
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       ),
@@ -84,7 +106,7 @@ class GiftPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  reward.description,
+                  event.description,
                   style:
                       const TextStyle(fontWeight: FontWeight.bold, height: 3.0),
                 ),
@@ -102,10 +124,10 @@ class GiftPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const QrCodePage()),
+                                builder: (context) => const ParticipatedPage()),
                           );
                         },
-                        child: const Text("Profiter")),
+                        child: const Text("Participer")),
                   ),
                 ),
               ),

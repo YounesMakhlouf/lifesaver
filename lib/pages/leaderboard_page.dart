@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../datamodel.dart';
-import 'ProfilePage.dart';
+import '../data_model.dart';
+import 'profile_page.dart';
 
 class LeaderboardPage extends StatelessWidget {
   const LeaderboardPage({super.key});

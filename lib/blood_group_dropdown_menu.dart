@@ -8,13 +8,13 @@ class BloodGroupDropdownMenu extends StatefulWidget {
 }
 
 class _BloodGroupDropdownMenuState extends State<BloodGroupDropdownMenu> {
-  String? selectedItem = BloodGroups[0];
+  String? selectedItem = bloodGroups[0];
 
   @override
   Widget build(BuildContext context) {
     final List<DropdownMenuEntry<String>> bloodGroupEntries =
         <DropdownMenuEntry<String>>[];
-    for (final String bloodGroup in BloodGroups) {
+    for (final String bloodGroup in bloodGroups) {
       bloodGroupEntries.add(
         DropdownMenuEntry<String>(value: bloodGroup, label: bloodGroup),
       );
@@ -46,4 +46,4 @@ class _BloodGroupDropdownMenuState extends State<BloodGroupDropdownMenu> {
   }
 }
 
-List<String> BloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+List<String> bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];

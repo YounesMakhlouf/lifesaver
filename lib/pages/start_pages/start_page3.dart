@@ -1,5 +1,5 @@
-import 'package:blood_donation/pages/loginpage.dart';
-import 'package:blood_donation/pages/signin.dart';
+import 'package:blood_donation/pages/login_page.dart';
+import 'package:blood_donation/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -16,7 +16,10 @@ class Main3Page extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("images/main3.png"),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset("images/main3.png"),
+                ),
                 const Padding(
                   padding: EdgeInsets.all(35.0),
                   child: Text(
@@ -33,11 +36,14 @@ class Main3Page extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const AnimatedSmoothIndicator(
-                  activeIndex: 2,
-                  count: 3,
-                  effect: ExpandingDotsEffect(
-                    activeDotColor: Colors.red,
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: AnimatedSmoothIndicator(
+                    activeIndex: 2,
+                    count: 3,
+                    effect: ExpandingDotsEffect(
+                      activeDotColor: Colors.red,
+                    ),
                   ),
                 ),
                 Padding(

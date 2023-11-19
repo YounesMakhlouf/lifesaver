@@ -21,9 +21,11 @@ class User {
 
 class Donation {
   final String date;
-  final String name;
+  final String location;
+  final User beneficiary;
 
-  Donation({required this.date, required this.name});
+  Donation(
+      {required this.date, required this.location, required this.beneficiary});
 }
 
 class Event {
@@ -75,17 +77,17 @@ class Reward {
 // Declarations
 List<Donation> donationHistory = [
   Donation(
-    date: '2023-11-10',
-    name: 'Centre national de transfusion sanguine, CTNS',
-  ),
+      date: '2023-11-10',
+      location: 'Centre national de transfusion sanguine, CTNS',
+      beneficiary: kotkot),
   Donation(
-    date: '2023-09-15',
-    name: "Collecte de sang a l'INSAT",
-  ),
+      date: '2023-09-15',
+      location: "Collecte de sang a l'INSAT",
+      beneficiary: kotkot),
   Donation(
-    date: '2023-07-20',
-    name: 'Centre national de transfusion sanguine, CTNS',
-  ),
+      date: '2023-07-20',
+      location: 'Centre national de transfusion sanguine, CTNS',
+      beneficiary: kotkot),
 ];
 
 User kotkot = User(

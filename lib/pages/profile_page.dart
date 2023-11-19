@@ -1,9 +1,9 @@
-import 'package:blood_donation/pages/demandeDon.dart';
-import 'package:blood_donation/pages/demandesdonpage.dart';
-import 'package:blood_donation/pages/qrcodepage.dart';
+import 'package:blood_donation/pages/demande_don.dart';
+import 'package:blood_donation/pages/demandes_don_page.dart';
+import 'package:blood_donation/pages/qr_code_page.dart';
 import 'package:flutter/material.dart';
 
-import '../datamodel.dart';
+import '../data_model.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -15,7 +15,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final _donationHistory = currentUser.donationHistory;
+    final donationHistory = currentUser.donationHistory;
 
     return Scaffold(
       body: Column(
@@ -114,11 +114,17 @@ class _ProfilePageState extends State<ProfilePage> {
           const Divider(),
 
 // Donation history section
-          Text(
-            "Historique des dons:",
-            style: Theme.of(context).textTheme.headlineSmall,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              donationHistory != null
+                  ? "Historique des dons:"
+                  : "Soyez un héros, donnez du sang ! 💪🩸",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
           ),
-          if (_donationHistory != null)
+          if (donationHistory != null)
             SizedBox(
               height: 300, // Specify a height for the ListView
               child: ListView.builder(
@@ -127,7 +133,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   final donation = currentUser.donationHistory?[index];
                   return ListTile(
                     title: Text(donation!.date),
-                    subtitle: Text(donation.name),
+                    subtitle: Text(donation.location),
                   );
                 },
               ),

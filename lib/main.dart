@@ -1,16 +1,15 @@
-import 'package:blood_donation/datamodel.dart';
-import 'package:blood_donation/pages/leadearboardpage.dart';
-import 'package:blood_donation/pages/main1page.dart';
-import 'package:blood_donation/pages/main2page.dart';
-import 'package:blood_donation/pages/main3page.dart';
-import 'package:blood_donation/pages/signin.dart';
+import 'package:blood_donation/data_model.dart';
+import 'package:blood_donation/pages/leaderboard_page.dart';
+import 'package:blood_donation/pages/start_pages/start_page1.dart';
+import 'package:blood_donation/pages/start_pages/start_page2.dart';
+import 'package:blood_donation/pages/start_pages/start_page3.dart';
+import 'package:blood_donation/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 
-import 'pages/GiftsPage.dart';
-import 'pages/HomePage.dart';
-import 'pages/NotificationsPage.dart';
-import 'pages/ProfilePage.dart';
-import 'pages/loadingpage.dart';
+import 'pages/gifts_page.dart';
+import 'pages/home_page.dart';
+import 'pages/notifications_page.dart';
+import 'pages/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,9 +27,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      initialRoute: '/loading', // Set the initial route to LoadingPage
+      initialRoute: '/main1',
       routes: {
-        '/loading': (context) => const LoadingPage(),
         '/main1': (context) => const Main1Page(),
         '/main2': (context) => const Main2Page(),
         '/main3': (context) => const Main3Page(),
