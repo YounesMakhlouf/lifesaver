@@ -1,5 +1,5 @@
-import 'package:blood_donation/pages/login_page.dart';
-import 'package:blood_donation/pages/sign_in.dart';
+import 'package:blood_donation/pages/authenticate/login_page.dart';
+import 'package:blood_donation/pages/authenticate/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

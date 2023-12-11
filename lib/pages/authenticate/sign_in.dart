@@ -1,8 +1,10 @@
 import 'package:blood_donation/main.dart';
+import 'package:blood_donation/services/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../data_model.dart';
-import '../blood_group_dropdown_menu.dart';
+import '../../blood_group_dropdown_menu.dart';
+import '../../data_model.dart';
 
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});
@@ -50,6 +52,7 @@ class MyCustomForm extends StatefulWidget {
 
 // Create a corresponding State class. This class holds data related to the form.
 class MyCustomFormState extends State<MyCustomForm> {
+  final FirebaseAuthService _auth = FirebaseAuthService();
   final nameController = TextEditingController();
   final cinController = TextEditingController();
   final emailController = TextEditingController();
@@ -170,24 +173,30 @@ class MyCustomFormState extends State<MyCustomForm> {
                       minimumSize: const Size.fromHeight(50),
                     ),
                     child: const Text('Valider'),
-                    onPressed: () {
-                      // Validate returns true if the form is valid, or false otherwise.
-                      if (_formKey.currentState!.validate()) {
-                        currentUser.name = nameController.text;
-                        currentUser.email = emailController.text;
-                        currentUser.cin = int.parse(cinController.text);
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const MyHomePage()),
-                        );
-                      }
-                    },
+                    onPressed: _signup,
                   )),
             ),
           ],
         ),
       ),
     );
+  }
+
+  void _signup() async {
+    String username = nameController.text;
+    String email = emailController.text;
+    String password = cinController.text;
+    User? user = await _auth.signUpWithEmailAndPassword(email, password);
+    if (user != null){
+      print ('user is sucessefully created');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => const MyHomePage()),
+      );
+    }
+    else{
+      print('Some error happened');
+    }
   }
 }

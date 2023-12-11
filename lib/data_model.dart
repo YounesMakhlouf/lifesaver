@@ -1,4 +1,4 @@
-class User {
+class nUser {
   String name;
   int cin;
   int age;
@@ -8,7 +8,7 @@ class User {
   int points = 0;
   List<Donation>? donationHistory;
 
-  User(
+  nUser(
       {required this.name,
       required this.cin,
       required this.age,
@@ -22,7 +22,7 @@ class User {
 class Donation {
   final String date;
   final String location;
-  final User beneficiary;
+  final nUser beneficiary;
 
   Donation(
       {required this.date, required this.location, required this.beneficiary});
@@ -90,7 +90,7 @@ List<Donation> donationHistory = [
       beneficiary: kotkot),
 ];
 
-User kotkot = User(
+nUser kotkot = nUser(
     name: "Salma Bouabidi",
     image: "images/avatar2.png",
     cin: 11003345,
@@ -98,28 +98,28 @@ User kotkot = User(
     groupeSanguin: "AB",
     points: 20,
     donationHistory: donationHistory);
-User kotkot2 = User(
+nUser kotkot2 = nUser(
     name: "Iron Man",
     image: "images/avatar.png",
     cin: 11003345,
     age: 21,
     groupeSanguin: "AB",
     points: 40);
-User kotkot3 = User(
+nUser kotkot3 = nUser(
     name: "Ahmed Mohsen",
     image: "images/avatar3.png",
     cin: 11003345,
     age: 21,
     groupeSanguin: "AB",
     points: 60);
-User kotkot4 = User(
+nUser kotkot4 = nUser(
     name: "Younes Makhlouf",
     image: "images/avatar.png",
     cin: 11003345,
     age: 21,
     groupeSanguin: "AB",
     points: 100);
-List<User> users = [kotkot4, kotkot3, kotkot2, kotkot];
+List<nUser> users = [kotkot4, kotkot3, kotkot2, kotkot];
 
 var e = Event(
     name: "Chaque goutte compte",
@@ -170,4 +170,4 @@ Demande d1 = Demande(
 
 List<Demande> demandes = [d1, d1, d1, d1];
 
-final User currentUser = kotkot2;
+final nUser currentUser = kotkot2;

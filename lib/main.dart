@@ -3,7 +3,9 @@ import 'package:blood_donation/pages/leaderboard_page.dart';
 import 'package:blood_donation/pages/start_pages/start_page1.dart';
 import 'package:blood_donation/pages/start_pages/start_page2.dart';
 import 'package:blood_donation/pages/start_pages/start_page3.dart';
-import 'package:blood_donation/pages/sign_in.dart';
+import 'package:blood_donation/pages/authenticate/sign_in.dart';
+import 'package:blood_donation/pages/wrapper.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/gifts_page.dart';
@@ -11,7 +13,9 @@ import 'pages/home_page.dart';
 import 'pages/notifications_page.dart';
 import 'pages/profile_page.dart';
 
-void main() {
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -22,6 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home: Wrapper(),
       title: 'tbara3',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),

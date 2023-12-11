@@ -27,7 +27,7 @@ class LeaderboardPage extends StatelessWidget {
 }
 
 class UserItem extends StatelessWidget {
-  final User user;
+  final nUser user;
   final Function onPress;
 
   const UserItem({super.key, required this.user, required this.onPress});
