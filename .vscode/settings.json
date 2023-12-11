@@ -1,3 +1,5 @@
 {
-    "cmake.sourceDirectory": "C:/Users/wawao/OneDrive/Bureau/blood_donation/windows"
+    "cmake.sourceDirectory": "C:/Users/wawao/OneDrive/Bureau/blood_donation/windows",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

@@ -35,9 +35,9 @@ class Main2Page extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: const AnimatedSmoothIndicator(
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: AnimatedSmoothIndicator(
                     activeIndex: 1,
                     count: 3,
                     effect: ExpandingDotsEffect(
