@@ -1,5 +1,8 @@
 import 'package:blood_donation/main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../../services/auth.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -28,7 +31,7 @@ class LoginPage extends StatelessWidget {
         ),
         body: const Padding(
           padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50),
-          child: MyCustomForm(),
+          child: FormContainerWidget(),
         ),
       ),
     );
@@ -36,17 +39,19 @@ class LoginPage extends StatelessWidget {
 }
 
 // Create a Form widget.
-class MyCustomForm extends StatefulWidget {
-  const MyCustomForm({super.key});
+class FormContainerWidget extends StatefulWidget {
+  const FormContainerWidget({super.key});
 
   @override
-  MyCustomFormState createState() {
-    return MyCustomFormState();
+  FormContainerWidgetState createState() {
+    return FormContainerWidgetState();
   }
 }
 
 // Create a corresponding State class. This class holds data related to the form.
-class MyCustomFormState extends State<MyCustomForm> {
+class FormContainerWidgetState extends State<FormContainerWidget> {
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
   final cinController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -74,7 +79,6 @@ class MyCustomFormState extends State<MyCustomForm> {
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
                 controller: cinController,
-                keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter some text';
@@ -114,22 +118,30 @@ class MyCustomFormState extends State<MyCustomForm> {
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size.fromHeight(50),
                     ),
-                    child: const Text('Se connecter'),
-                    onPressed: () {
-                      // Validate returns true if the form is valid, or false otherwise.
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const MyHomePage()),
-                        );
-                      }
-                    },
+                    onPressed: _signin,
+                    child: const Text('Se connecter')
                   ),
                 )),
           ],
         ),
       ),
     );
+  }
+
+  void _signin() async {
+    String cin = cinController.text;
+    String password = passwordController.text;
+    User? user = await _auth.signInWithEmailAndPassword(cin, password);
+    if (user != null){
+      print ('user is sucessefully created');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => const MyHomePage()),
+      );
+    }
+    else{
+      print('Some error happened');
+    }
   }
 }

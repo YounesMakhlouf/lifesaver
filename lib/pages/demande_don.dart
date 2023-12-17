@@ -30,7 +30,7 @@ class DemandeDon extends StatelessWidget {
         ),
         body: const Padding(
           padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50),
-          child: MyCustomForm(),
+          child: FormContainerWidget(),
         ),
       ),
     );
@@ -38,17 +38,17 @@ class DemandeDon extends StatelessWidget {
 }
 
 // Create a Form widget.
-class MyCustomForm extends StatefulWidget {
-  const MyCustomForm({super.key});
+class FormContainerWidget extends StatefulWidget {
+  const FormContainerWidget({super.key});
 
   @override
-  MyCustomFormState createState() {
-    return MyCustomFormState();
+  FormContainerWidgetState createState() {
+    return FormContainerWidgetState();
   }
 }
 
 // Create a corresponding State class. This class holds data related to the form.
-class MyCustomFormState extends State<MyCustomForm> {
+class FormContainerWidgetState extends State<FormContainerWidget> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
   final _formKey = GlobalKey<FormState>();

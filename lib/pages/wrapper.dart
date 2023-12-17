@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
     
       @override
       Widget build(BuildContext context) {
-        return HomePage();
+        return const HomePage();
       }
     }
     
