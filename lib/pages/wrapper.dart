@@ -9,7 +9,7 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (FirebaseAuth.instance.currentUser?.uid == null) {
-      return Main1Page();
+      return const Main1Page();
     } else {
       return const MyHomePage();
     }

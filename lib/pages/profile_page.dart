@@ -1,6 +1,8 @@
 import 'package:blood_donation/pages/demande_don.dart';
 import 'package:blood_donation/pages/demandes_don_page.dart';
 import 'package:blood_donation/pages/qr_code_page.dart';
+import 'package:blood_donation/pages/wrapper.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../data_model.dart';
@@ -111,6 +113,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 );
               },
               child: const Text("Suivre mes demandes")),
+          ElevatedButton(
+              child: const Text('Se déconnecter'),
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Wrapper()),
+                );
+              }),
           const Divider(),
 
 // Donation history section

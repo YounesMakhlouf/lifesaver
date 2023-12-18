@@ -145,7 +145,7 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
   }
 
   void _signup() async {
-    String username = nameController.text;
+    // String username = nameController.text;
     String email = emailController.text;
     String password = cinController.text;
     User? user = await _auth.signUpWithEmailAndPassword(email, password);

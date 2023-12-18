@@ -3,7 +3,7 @@ import 'package:blood_donation/pages/start_pages/start_page3.dart';
 import 'package:flutter/material.dart';
 
 class Main2Page extends MainPage {
-  Main2Page(
+  const Main2Page(
       {super.key,
       super.image = 'images/main2.png',
       super.nextPage,

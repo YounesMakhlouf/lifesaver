@@ -3,7 +3,7 @@ import 'package:blood_donation/pages/start_pages/start_page2.dart';
 import 'package:flutter/material.dart';
 
 class Main1Page extends MainPage {
-  Main1Page(
+  const Main1Page(
       {super.key,
       super.image = 'images/main1.png',
       super.nextPage,
@@ -12,6 +12,6 @@ class Main1Page extends MainPage {
 
   @override
   Widget build(BuildContext context) {
-    return MainPage(image: image, text: text, nextPage: Main2Page());
+    return MainPage(image: image, text: text, nextPage: const Main2Page());
   }
 }

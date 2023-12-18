@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MainPage extends StatelessWidget {
-  String image;
-  String text;
-  var nextPage;
+  final String image;
+  final String text;
+  final dynamic nextPage;
 
-  MainPage(
+  const MainPage(
       {super.key,
       required this.image,
       required this.text,
