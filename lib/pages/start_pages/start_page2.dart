@@ -1,70 +1,21 @@
+import 'package:blood_donation/pages/start_pages/start_page.dart';
 import 'package:blood_donation/pages/start_pages/start_page3.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class Main2Page extends StatelessWidget {
-  const Main2Page({super.key});
+class Main2Page extends MainPage {
+  Main2Page(
+      {super.key,
+      super.image = 'images/main2.png',
+      super.nextPage,
+      super.text =
+          'Découvrez les avantages spéciaux qui vous attendent en tant que donneur dévoué : récompenses exclusives, accès à des événements réservés, et bien plus encore.'});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset("images/main2.png"),
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(35.0),
-                  child: Text(
-                    "Découvrez les avantages spéciaux qui vous attendent en tant que donneur dévoué : récompenses exclusives, accès à des événements réservés, et bien plus encore.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: AnimatedSmoothIndicator(
-                    activeIndex: 1,
-                    count: 3,
-                    effect: ExpandingDotsEffect(
-                      activeDotColor: Colors.red,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50),
-                      ),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Main3Page()),
-                        );
-                      },
-                      child: const Text("SUIVANT")),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+    return MainPage(
+      image: image,
+      text: text,
+      nextPage: const Main3Page(),
     );
   }
 }

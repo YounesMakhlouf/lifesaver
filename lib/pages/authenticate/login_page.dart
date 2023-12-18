@@ -1,8 +1,8 @@
-import 'package:blood_donation/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../services/auth.dart';
+import '../my_home_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -115,12 +115,11 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50),
-                    ),
-                    onPressed: _signin,
-                    child: const Text('Se connecter')
-                  ),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50),
+                      ),
+                      onPressed: _signin,
+                      child: const Text('Se connecter')),
                 )),
           ],
         ),
@@ -132,15 +131,13 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
     String cin = cinController.text;
     String password = passwordController.text;
     User? user = await _auth.signInWithEmailAndPassword(cin, password);
-    if (user != null){
-      print ('user is sucessefully created');
+    if (user != null) {
+      print('user is sucessefully created');
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-            builder: (context) => const MyHomePage()),
+        MaterialPageRoute(builder: (context) => const MyHomePage()),
       );
-    }
-    else{
+    } else {
       print('Some error happened');
     }
   }

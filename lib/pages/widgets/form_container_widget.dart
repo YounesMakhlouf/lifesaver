@@ -1,10 +1,9 @@
-
-// Create a Form widget.
 import 'package:blood_donation/blood_group_dropdown_menu.dart';
-import 'package:blood_donation/main.dart';
 import 'package:blood_donation/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../my_home_page.dart';
 
 class FormContainerWidget extends StatefulWidget {
   const FormContainerWidget({super.key});
@@ -15,7 +14,6 @@ class FormContainerWidget extends StatefulWidget {
   }
 }
 
-// Create a corresponding State class. This class holds data related to the form.
 class FormContainerWidgetState extends State<FormContainerWidget> {
   final FirebaseAuthService _auth = FirebaseAuthService();
   final nameController = TextEditingController();
@@ -31,8 +29,7 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
     super.dispose();
   }
 
-  // Create a global key that uniquely identifies the Form widget
-  // and allows validation of the form.
+  // Create a global key that uniquely identifies the Form widget and allows validation of the form.
   final _formKey = GlobalKey<FormState>();
   DateTime selectedDate = DateTime.now();
 
@@ -152,15 +149,13 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
     String email = emailController.text;
     String password = cinController.text;
     User? user = await _auth.signUpWithEmailAndPassword(email, password);
-    if (user != null){
-      print ('user is sucessefully created');
+    if (user != null) {
+      print('user is sucessefully created');
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-            builder: (context) => const MyHomePage()),
+        MaterialPageRoute(builder: (context) => const MyHomePage()),
       );
-    }
-    else{
+    } else {
       print('Some error happened');
     }
   }

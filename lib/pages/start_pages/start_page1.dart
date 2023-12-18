@@ -1,70 +1,17 @@
+import 'package:blood_donation/pages/start_pages/start_page.dart';
 import 'package:blood_donation/pages/start_pages/start_page2.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class Main1Page extends StatelessWidget {
-  const Main1Page({super.key});
+class Main1Page extends MainPage {
+  Main1Page(
+      {super.key,
+      super.image = 'images/main1.png',
+      super.nextPage,
+      super.text =
+          "Faites un geste simple qui a un impact éternel. Rejoignez-nous dans cette mission de générosité et de vie."});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset("images/main1.png"),
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(35.0),
-                  child: Text(
-                    "Faites un geste simple qui a un impact éternel. Rejoignez-nous dans cette mission de générosité et de vie.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: AnimatedSmoothIndicator(
-                    activeIndex: 0,
-                    count: 3,
-                    effect: ExpandingDotsEffect(
-                      activeDotColor: Colors.red,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50),
-                      ),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Main2Page()),
-                        );
-                      },
-                      child: const Text("SUIVANT")),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+    return MainPage(image: image, text: text, nextPage: Main2Page());
   }
 }
