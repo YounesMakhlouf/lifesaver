@@ -16,12 +16,12 @@ class DemandeDon extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red.shade900,
-          title: const Center(
-              child: Text("Demander un don",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22))),
+          title: const Text("Demander un don",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22)),
+          centerTitle: true,
           elevation: 20,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(

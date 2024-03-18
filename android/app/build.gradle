@@ -8,8 +8,7 @@ plugins {
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader ->
-        localProperties.load(reader)
+    localPropertiesFile.withReader('UTF-8') { reader -> localProperties.load(reader)
     }
 }
 
@@ -24,6 +23,7 @@ if (flutterVersionName == null) {
 }
 apply plugin: 'com.google.gms.google-services'
 android {
+    ndkVersion "25.1.8937393"
     namespace "com.example.blood_donation"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion

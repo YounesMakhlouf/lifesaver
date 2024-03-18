@@ -41,12 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red.shade900,
-        title: Center(
-            child: Text("Bonjour ${currentUser.name}",
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22))),
+        title: Text("Bonjour ${currentUser.name}",
+            style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 22)),
+        centerTitle: true,
         elevation: 20,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(

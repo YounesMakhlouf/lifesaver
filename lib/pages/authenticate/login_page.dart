@@ -17,13 +17,13 @@ class LoginPage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red.shade900,
-          title: const Center(
-              child: Text("Bienvenue",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22))),
+          title: const Text("Bienvenue",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22)),
           elevation: 20,
+          centerTitle: true,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(100),

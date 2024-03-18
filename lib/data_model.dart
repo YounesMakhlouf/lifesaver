@@ -79,15 +79,15 @@ List<Donation> donationHistory = [
   Donation(
       date: '2023-11-10',
       location: 'Centre national de transfusion sanguine, CTNS',
-      beneficiary: kotkot),
+      beneficiary: kotkot2),
   Donation(
       date: '2023-09-15',
       location: "Collecte de sang a l'INSAT",
-      beneficiary: kotkot),
+      beneficiary: kotkot2),
   Donation(
       date: '2023-07-20',
       location: 'Centre national de transfusion sanguine, CTNS',
-      beneficiary: kotkot),
+      beneficiary: kotkot2),
 ];
 
 nUser kotkot = nUser(
