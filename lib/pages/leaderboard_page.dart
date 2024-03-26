@@ -1,3 +1,4 @@
+import 'package:blood_donation/pages/widgets/score.dart';
 import 'package:flutter/material.dart';
 
 import '../data_model.dart';
@@ -68,28 +69,7 @@ class UserItem extends StatelessWidget {
                     )
                   ],
                 ),
-                Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: Image.asset(
-                        'images/blood.png',
-                        width: 35,
-                      ),
-                    ),
-                    Positioned(
-                      right: 15,
-                      bottom: 5,
-                      child: Text(
-                        '${user.points}',
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                Score(points: user.points)
               ],
             ),
           ),

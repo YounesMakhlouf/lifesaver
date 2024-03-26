@@ -1,6 +1,7 @@
 import 'package:blood_donation/pages/demande_don.dart';
 import 'package:blood_donation/pages/demandes_don_page.dart';
 import 'package:blood_donation/pages/qr_code_page.dart';
+import 'package:blood_donation/pages/widgets/score.dart';
 import 'package:blood_donation/pages/wrapper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -35,23 +36,11 @@ class _ProfilePageState extends State<ProfilePage> {
                       radius: 60,
                       backgroundImage: AssetImage(currentUser.image),
                     ),
-                    const Positioned(
+                    Positioned(
                       bottom: 0,
                       right: 0,
                       width: 40,
-                      child: Image(image: AssetImage('images/blood.png')),
-                    ),
-                    Positioned(
-                      right: 8,
-                      bottom: 5,
-                      child: Text(
-                        '${currentUser.points}',
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: Score(points: currentUser.points),
                     ),
                   ]),
                 ),
