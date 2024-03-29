@@ -54,17 +54,17 @@ class _ProfilePageState extends State<ProfilePage> {
                           currentUser.name,
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const QrCodePage()),
-                            );
-                          },
-                          child: const Padding(
-                            padding: EdgeInsets.only(left: 5.0),
-                            child: Icon(Icons.qr_code),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5.0),
+                          child: IconButton(
+                            icon: Icon(Icons.qr_code),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const QrCodePage()),
+                              );
+                            },
                           ),
                         ),
                       ],
@@ -86,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
-          ElevatedButton(
+          FilledButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -102,7 +102,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 );
               },
               child: const Text("Suivre mes demandes")),
-          ElevatedButton(
+          TextButton(
               child: const Text('Se déconnecter'),
               onPressed: () {
                 FirebaseAuth.instance.signOut();

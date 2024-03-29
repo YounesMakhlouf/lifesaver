@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MainPage extends StatelessWidget {
+  final int index;
   final String image;
   final String text;
   final dynamic nextPage;
 
   const MainPage(
       {super.key,
+      required this.index,
       required this.image,
       required this.text,
       required this.nextPage});
@@ -42,10 +44,10 @@ class MainPage extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: AnimatedSmoothIndicator(
-                    activeIndex: 0,
+                    activeIndex: index,
                     count: 3,
                     effect: ExpandingDotsEffect(
                       activeDotColor: Colors.red,
@@ -54,8 +56,8 @@ class MainPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
+                  child: FilledButton(
+                      style: FilledButton.styleFrom(
                         minimumSize: const Size.fromHeight(50),
                       ),
                       onPressed: () {

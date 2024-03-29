@@ -94,8 +94,8 @@ class GiftPage extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: Align(
                     alignment: Alignment.bottomCenter,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
+                    child: FilledButton(
+                        style: FilledButton.styleFrom(
                           minimumSize: const Size.fromHeight(50),
                         ),
                         onPressed: () {

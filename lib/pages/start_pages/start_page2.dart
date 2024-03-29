@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class Main2Page extends MainPage {
   const Main2Page(
       {super.key,
+      super.index = 1,
       super.image = 'images/main2.png',
       super.nextPage,
       super.text =
@@ -13,6 +14,7 @@ class Main2Page extends MainPage {
   @override
   Widget build(BuildContext context) {
     return MainPage(
+      index: index,
       image: image,
       text: text,
       nextPage: const Main3Page(),

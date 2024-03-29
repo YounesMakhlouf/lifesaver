@@ -48,8 +48,8 @@ class Main3Page extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
+                  child: FilledButton(
+                      style: FilledButton.styleFrom(
                         minimumSize: const Size.fromHeight(50),
                       ),
                       onPressed: () {
@@ -63,8 +63,8 @@ class Main3Page extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
+                  child: FilledButton.tonal(
+                      style: FilledButton.styleFrom(
                         minimumSize: const Size.fromHeight(50),
                       ),
                       onPressed: () {
