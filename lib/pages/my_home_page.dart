@@ -60,7 +60,10 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: "Acceuil"),
+          NavigationDestination(
+              icon: Icon(Icons.home),
+              selectedIcon: Icon(Icons.home_filled),
+              label: "Acceuil"),
           NavigationDestination(
               icon: Icon(Icons.leaderboard), label: "Classement"),
           NavigationDestination(icon: Icon(Icons.redeem), label: "Cadeaux"),

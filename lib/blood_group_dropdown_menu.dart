@@ -23,8 +23,8 @@ class _BloodGroupDropdownMenuState extends State<BloodGroupDropdownMenu> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5),
-          child: Row(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               DropdownMenu<String>(
@@ -33,7 +33,7 @@ class _BloodGroupDropdownMenuState extends State<BloodGroupDropdownMenu> {
                 dropdownMenuEntries: bloodGroupEntries,
                 onSelected: (String? bloodGroup) {
                   setState(() {
-                    selectedItem = bloodGroup;
+                    selectedItem = bloodGroup!;
                   });
                 },
               ),

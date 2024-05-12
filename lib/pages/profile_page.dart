@@ -55,9 +55,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 5.0),
+                          padding: const EdgeInsets.only(left: 5.0),
                           child: IconButton(
-                            icon: Icon(Icons.qr_code),
+                            icon: const Icon(Icons.qr_code),
                             onPressed: () {
                               Navigator.push(
                                 context,

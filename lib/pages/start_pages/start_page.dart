@@ -17,60 +17,71 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 12.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(image),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(35.0),
-                  child: Text(
-                    text,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                 Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: AnimatedSmoothIndicator(
-                    activeIndex: index,
-                    count: 3,
-                    effect: ExpandingDotsEffect(
-                      activeDotColor: Colors.red,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: FilledButton(
-                      style: FilledButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(image, height: 350),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 24.0, horizontal: 16.0),
+                        child: Text(
+                          text,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => nextPage),
-                        );
-                      },
-                      child: const Text("SUIVANT")),
+                    ],
+                  ),
+                ),
+                Column(
+                  children: [
+                    AnimatedSmoothIndicator(
+                      activeIndex: index,
+                      count: 3,
+                      effect: ExpandingDotsEffect(
+                        activeDotColor: Theme.of(context).primaryColor,
+                        dotHeight: 16,
+                        dotWidth: 16,
+                        spacing: 8,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: FilledButton.icon(
+                          style: FilledButton.styleFrom(
+                            minimumSize: const Size(double.infinity, 50),
+                            backgroundColor: Colors.redAccent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  30.0), // Rounded corners for the button
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => nextPage),
+                            );
+                          },
+                          icon: const Icon(Icons.arrow_forward),
+                          label: const Text("Suivant")),
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

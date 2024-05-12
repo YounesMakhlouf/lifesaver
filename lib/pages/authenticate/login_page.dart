@@ -130,14 +130,14 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
   void _signin() async {
     String cin = cinController.text;
     String password = passwordController.text;
-    User? user = await _auth.signInWithEmailAndPassword(cin, password);
-    if (user != null) {
-      print('user is sucessefully created');
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const MyHomePage()),
-      );
-    } else {
+    try {
+      User? user = await _auth.signInWithEmailAndPassword(cin, password);
+      if (user != null) {
+        print('user is sucessefully created');
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const MyHomePage()));
+      }
+    } catch (e) {
       print('Some error happened');
     }
   }
