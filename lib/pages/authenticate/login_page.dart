@@ -143,16 +143,14 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
       try {
         User? user = await _auth.signInWithEmailAndPassword(cin, password);
         if (user != null) {
-          print('User successfully signed in');
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => const MyHomePage()),
           );
         }
-      } catch (e) {
-        // Display an error message to the user
+      } on FirebaseAuthException catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Échec de la connexion : ${e.toString()}')),
+          SnackBar(content: Text(e.message ?? 'Une erreur est survenue.')),
         );
       } finally {
         // Hide the loading indicator

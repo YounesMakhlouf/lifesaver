@@ -58,24 +58,22 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
       setState(() {
         _isLoading = true;
       });
-      String name = nameController.text.trim();
-      String cin = cinController.text.trim();
-      String email = emailController.text.trim();
-      String password = passwordController.text;
-      String bloodGroup = bloodGroupController.text;
 
       try {
-        User? user = await _auth.signUpWithEmailAndPassword(email, password);
+        User? user = await _auth.signUpWithEmailAndPassword(
+          emailController.text.trim(),
+          passwordController.text,
+        );
         if (user != null) {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => const MyHomePage()),
           );
         }
-      } catch (e) {
+      } on FirebaseAuthException catch (e) {
+        // Display the error message to the user
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-              content: Text('Erreur lors de l\'inscription : ${e.toString()}')),
+          SnackBar(content: Text(e.message ?? 'Une erreur est survenue.')),
         );
       } finally {
         setState(() {
