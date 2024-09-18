@@ -15,64 +15,64 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int currentPageIndex = 0;
+  int _currentPageIndex = 0;
+
+  final List<Widget> _pages = [
+    const HomePage(),
+    const LeaderboardPage(),
+    const GiftsPage(),
+    const NotificationsPage(),
+    const ProfilePage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    Widget currentWidgetPage = const Text("fech tbalbez ti aatina page sahbi");
+    String userName = currentUser?.name ?? 'Utilisateur';
 
-    switch (currentPageIndex) {
-      case 0:
-        currentWidgetPage = const HomePage();
-        break;
-      case 1:
-        currentWidgetPage = const LeaderboardPage();
-        break;
-      case 2:
-        currentWidgetPage = const GiftsPage();
-        break;
-      case 3:
-        currentWidgetPage = const NotificationsPage();
-        break;
-      case 4:
-        currentWidgetPage = const ProfilePage();
-        break;
-    }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red.shade900,
-        title: Text("Bonjour ${currentUser.name}",
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold)),
-        centerTitle: true,
-        elevation: 20,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(100),
-                bottomRight: Radius.circular(100))),
+        title: Text("Bonjour $userName"),
+      ),
+      body: IndexedStack(
+        index: _currentPageIndex,
+        children: _pages,
       ),
       bottomNavigationBar: NavigationBar(
-        selectedIndex: currentPageIndex,
+        selectedIndex: _currentPageIndex,
         onDestinationSelected: (int newIndex) {
           setState(() {
-            currentPageIndex = newIndex;
+            _currentPageIndex = newIndex;
           });
         },
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         destinations: const [
           NavigationDestination(
-              icon: Icon(Icons.home),
-              selectedIcon: Icon(Icons.home_filled),
-              label: "Acceuil"),
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home),
+            label: 'Accueil',
+          ),
           NavigationDestination(
-              icon: Icon(Icons.leaderboard), label: "Classement"),
-          NavigationDestination(icon: Icon(Icons.redeem), label: "Cadeaux"),
+            icon: Icon(Icons.leaderboard_outlined),
+            selectedIcon: Icon(Icons.leaderboard),
+            label: 'Classement',
+          ),
           NavigationDestination(
-              icon: Icon(Icons.notifications), label: "Notifications"),
-          NavigationDestination(icon: Icon(Icons.person), label: "Profil"),
+            icon: Icon(Icons.redeem_outlined),
+            selectedIcon: Icon(Icons.redeem),
+            label: 'Cadeaux',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.notifications_outlined),
+            selectedIcon: Icon(Icons.notifications),
+            label: 'Notifications',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.person_outline),
+            selectedIcon: Icon(Icons.person),
+            label: 'Profil',
+          ),
         ],
       ),
-      body: currentWidgetPage,
     );
   }
 }

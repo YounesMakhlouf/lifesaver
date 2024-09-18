@@ -8,26 +8,9 @@ class DemandeDon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Removed MaterialApp
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red.shade900,
-        title: const Text(
-          "Demander un don",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-          ),
-        ),
-        centerTitle: true,
-        elevation: 20,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(100),
-            bottomRight: Radius.circular(100),
-          ),
-        ),
+        title: const Text("Demander un don"),
       ),
       body: const Padding(
         padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50),
@@ -153,8 +136,8 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
                   Container(
                     padding: const EdgeInsets.only(top: 40.0, bottom: 5),
                     child: ElevatedButton(
-                      child: const Text('Valider la demande'),
                       onPressed: _submitForm,
+                      child: const Text('Valider la demande'),
                     ),
                   ),
                   ElevatedButton(
