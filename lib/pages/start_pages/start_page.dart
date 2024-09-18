@@ -5,25 +5,29 @@ class MainPage extends StatelessWidget {
   final int index;
   final String image;
   final String text;
-  final dynamic nextPage;
+  final Widget? nextPage;
+  final List<Widget>? actions;
 
-  const MainPage(
-      {super.key,
-      required this.index,
-      required this.image,
-      required this.text,
-      required this.nextPage});
-
+  const MainPage({
+    super.key,
+    required this.index,
+    required this.image,
+    required this.text,
+    this.nextPage,
+    this.actions,
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 12.0),
+          padding:
+          const EdgeInsets.symmetric(vertical: 20.0, horizontal: 12.0),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                // Main Content
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -44,6 +48,7 @@ class MainPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                // Navigation Dots and Actions
                 Column(
                   children: [
                     AnimatedSmoothIndicator(
@@ -57,26 +62,32 @@ class MainPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: FilledButton.icon(
+                    if (actions != null)
+                      ...actions!
+                    else
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: FilledButton.icon(
                           style: FilledButton.styleFrom(
                             minimumSize: const Size(double.infinity, 50),
                             backgroundColor: Colors.redAccent,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  30.0), // Rounded corners for the button
+                              borderRadius: BorderRadius.circular(30.0),
                             ),
                           ),
                           onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => nextPage),
-                            );
+                            if (nextPage != null) {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => nextPage!),
+                              );
+                            }
                           },
                           icon: const Icon(Icons.arrow_forward),
-                          label: const Text("Suivant")),
-                    ),
+                          label: const Text("Suivant"),
+                        ),
+                      ),
                   ],
                 ),
               ],

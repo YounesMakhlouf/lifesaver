@@ -54,6 +54,8 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
 
   final cinController = TextEditingController();
   final passwordController = TextEditingController();
+  bool _isLoading = false;
+  int expectedLength = 8;
 
   @override
   void dispose() {
@@ -69,7 +71,9 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // Build a Form widget using the _formKey created above.
+    if (_isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
     return Form(
       key: _formKey,
       child: SingleChildScrollView(
@@ -81,7 +85,7 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
                 controller: cinController,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
+                    return 'Veuillez entrer votre CIN';
                   }
                   return null;
                 },
@@ -96,15 +100,16 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
                 controller: passwordController,
+                obscureText: true,
                 keyboardType: TextInputType.visiblePassword,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
+                    return 'Veuillez entrer votre mot de passe';
                   }
                   return null;
                 },
                 decoration: const InputDecoration(
-                  icon: Icon(Icons.password),
+                  icon: Icon(Icons.lock),
                   hintText: 'Mot de passe',
                   labelText: 'Mot de passe',
                 ),
@@ -130,15 +135,31 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
   void _signin() async {
     String cin = cinController.text;
     String password = passwordController.text;
-    try {
-      User? user = await _auth.signInWithEmailAndPassword(cin, password);
-      if (user != null) {
-        print('user is sucessefully created');
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const MyHomePage()));
+    if (_formKey.currentState!.validate()) {
+      // Show a loading indicator
+      setState(() {
+        _isLoading = true;
+      });
+      try {
+        User? user = await _auth.signInWithEmailAndPassword(cin, password);
+        if (user != null) {
+          print('User successfully signed in');
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const MyHomePage()),
+          );
+        }
+      } catch (e) {
+        // Display an error message to the user
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Échec de la connexion : ${e.toString()}')),
+        );
+      } finally {
+        // Hide the loading indicator
+        setState(() {
+          _isLoading = false;
+        });
       }
-    } catch (e) {
-      print('Some error happened');
     }
   }
 }

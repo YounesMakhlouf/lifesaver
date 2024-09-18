@@ -7,30 +7,40 @@ class Score extends StatelessWidget {
     super.key,
     required this.points,
   });
-
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 8.0),
-          child: Image.asset(
+    return SizedBox(
+      width: 35,
+      height: 35,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Image.asset(
             'images/blood.png',
             width: 35,
+            semanticLabel: 'Blood drop icon',
           ),
-        ),
-        Positioned(
-          right: 15,
-          bottom: 5,
-          child: Text(
-            '$points',
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          Positioned(
+            right: 8,
+            bottom: 5,
+            child: Container(
+              padding: const EdgeInsets.all(2.0),
+              decoration: const BoxDecoration(
+                color: Colors.red,
+                shape: BoxShape.circle,
+              ),
+              child: Text(
+                '$points',
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

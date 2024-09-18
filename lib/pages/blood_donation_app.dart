@@ -10,6 +10,7 @@ class BloodDonationApp extends StatelessWidget {
       home: const Wrapper(),
       title: 'tbara3',
       theme: ThemeData(
+        primaryColor: Colors.red,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
