@@ -8,10 +8,21 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (FirebaseAuth.instance.currentUser?.uid == null) {
-      return const Main1Page();
-    } else {
-      return const MyHomePage();
-    }
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        // If the user is logged in, show the home page
+        if (snapshot.hasData) {
+          return const MyHomePage();
+        }
+
+        // Otherwise, show the start pages
+        return const Main1Page();
+      },
+    );
   }
 }

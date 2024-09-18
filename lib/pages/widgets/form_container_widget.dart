@@ -183,11 +183,13 @@ class FormContainerWidgetState extends State<FormContainerWidget> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 16.0),
-                    child:
-                        SizedBox(height: 105, child: BloodGroupDropdownMenu()),
+                  SizedBox(
+                    height: 105,
+                    child: BloodGroupDropdownMenu(
+                      controller: bloodGroupController,
+                    ),
                   ),
+
                   const SizedBox(height: 16),
                   // Date Picker
                   ListTile(
