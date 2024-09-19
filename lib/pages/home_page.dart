@@ -2,7 +2,7 @@ import 'package:blood_donation/pages/profile_page.dart';
 import 'package:blood_donation/pages/event_page.dart';
 import 'package:flutter/material.dart';
 
-import '../data_model.dart';
+import '../models/data_model.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

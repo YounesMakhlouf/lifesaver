@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../authenticate/login_page.dart';
-import '../authenticate/sign_in.dart';
+import '../authenticate/sign_up.dart';
 import 'start_page.dart';
 
 class Main3Page extends MainPage {
@@ -45,7 +45,7 @@ class Main3Page extends MainPage {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const SigninPage()),
+                MaterialPageRoute(builder: (context) => const SignUpPage()),
               );
             },
             child: const Text("Créer un compte"),

@@ -1,7 +1,7 @@
 import 'package:blood_donation/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
-import '../data_model.dart';
+import '../models/data_model.dart';
 import 'gifts_page.dart';
 import 'home_page.dart';
 import 'leaderboard_page.dart';
@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    String userName = currentUser.name ?? 'Utilisateur';
+    String userName = currentUser.name;
 
     return Scaffold(
       appBar: AppBar(

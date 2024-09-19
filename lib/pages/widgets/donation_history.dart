@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../data_model.dart';
+import '../../models/data_model.dart';
 
 class DonationHistorySection extends StatelessWidget {
   final List<Donation>? donationHistory;

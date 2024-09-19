@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'constants/constants.dart';
+
 class BloodGroupDropdownMenu extends StatefulWidget {
   final TextEditingController controller;
   final String labelText;
@@ -15,17 +17,6 @@ class BloodGroupDropdownMenu extends StatefulWidget {
 }
 
 class _BloodGroupDropdownMenuState extends State<BloodGroupDropdownMenu> {
-  final List<String> bloodGroups = [
-    'A+',
-    'A-',
-    'B+',
-    'B-',
-    'AB+',
-    'AB-',
-    'O+',
-    'O-'
-  ];
-
   @override
   void initState() {
     super.initState();

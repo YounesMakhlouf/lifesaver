@@ -1,7 +1,7 @@
 import 'package:blood_donation/pages/qr_code_page.dart';
 import 'package:flutter/material.dart';
 
-import '../data_model.dart';
+import '../models/data_model.dart';
 
 class GiftPage extends StatelessWidget {
   final Reward reward;

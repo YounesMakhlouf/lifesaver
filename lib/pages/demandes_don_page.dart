@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../data_model.dart';
+import '../models/data_model.dart';
 import 'profile_page.dart';
 
 class DemandesPage extends StatelessWidget {

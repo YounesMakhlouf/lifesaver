@@ -3,7 +3,7 @@ import 'package:blood_donation/pages/widgets/profile_actions.dart';
 import 'package:blood_donation/pages/widgets/profile_header.dart';
 import 'package:flutter/material.dart';
 
-import '../data_model.dart';
+import '../models/data_model.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

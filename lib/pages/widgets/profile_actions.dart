@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../data_model.dart';
+import '../../models/data_model.dart';
 import '../demande_don.dart';
 import '../demandes_don_page.dart';
 import '../wrapper.dart';
