@@ -21,6 +21,10 @@ class _ParticipatedPageState extends State<ParticipatedPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Image.asset("images/check.png")));
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Mon Code QR'),
+        ),
+        body: Center(child: Image.asset("images/check.png")));
   }
 }

@@ -21,7 +21,7 @@ class DonationHistorySection extends StatelessWidget {
                 ? "Historique des dons:"
                 : "Soyez un héros, donnez du sang ! 💪🩸",
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
         const SizedBox(height: 8),

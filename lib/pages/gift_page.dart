@@ -29,7 +29,7 @@ class GiftPage extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             reward.name,
-                            style: Theme.of(context).textTheme.headlineMedium,
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),
                       ),

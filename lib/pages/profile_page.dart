@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ProfileHeader(),
+            ProfileHeader(currentUser: currentUser),
             const ProfileActions(),
             const Divider(),
             DonationHistorySection(donationHistory: currentUser.donationHistory)

@@ -1,5 +1,5 @@
-import 'package:blood_donation/pages/profile_page.dart';
 import 'package:blood_donation/pages/event_page.dart';
+import 'package:blood_donation/pages/widgets/event_item.dart';
 import 'package:flutter/material.dart';
 
 import '../models/data_model.dart';
@@ -11,13 +11,34 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.only(top: 8.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
           child: Card(
-              child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text("Faites un don aujourd'hui et gagnez 10 points !"),
-          )),
+            color: Colors.red.shade100,
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  const Icon(Icons.favorite, color: Colors.red, size: 48),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Text(
+                      "Faites un don aujourd'hui et gagnez 10 points !",
+                      style:
+                          Theme.of(context).textTheme.titleLarge?.copyWith(
+                                color: Colors.red.shade900,
+                                fontWeight: FontWeight.bold,
+                              ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
         Expanded(
           child: ListView.builder(
@@ -25,73 +46,20 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index) {
               final event = events[index];
               return EventItem(
-                  event: event,
-                  onPress: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ProfilePage()),
-                    );
-                  });
+                event: event,
+                onPress: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EventPage(event: event),
+                    ),
+                  );
+                },
+              );
             },
           ),
         ),
       ],
     );
-  }
-}
-
-class EventItem extends StatelessWidget {
-  final Event event;
-  final Function onPress;
-
-  const EventItem({super.key, required this.event, required this.onPress});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(8),
-        child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => EventPage(event: event)),
-            );
-          },
-          child: Card(
-            elevation: 4,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(event.image),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text(
-                          event.name,
-                          style: const TextStyle(fontSize: 25),
-                        ),
-                      ),
-                      Row(children: [
-                        const Padding(
-                          padding: EdgeInsets.only(right: 8.0),
-                          child: Icon(Icons.map, color: Colors.red),
-                        ),
-                        Text(
-                          event.location,
-                          style: Theme.of(context).textTheme.labelLarge,
-                        )
-                      ]),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ));
   }
 }
