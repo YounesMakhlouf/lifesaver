@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    String userName = currentUser?.name ?? 'Utilisateur';
+    String userName = currentUser.name ?? 'Utilisateur';
 
     return Scaffold(
       appBar: AppBar(

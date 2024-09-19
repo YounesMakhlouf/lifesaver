@@ -4,7 +4,9 @@ import '../data_model.dart';
 import 'profile_page.dart';
 
 class DemandesPage extends StatelessWidget {
-  const DemandesPage({super.key});
+  final List<Demande> demandes;
+  const DemandesPage({super.key, required this.demandes});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -26,46 +28,31 @@ class DemandesPage extends StatelessWidget {
 
 class DemandeItem extends StatelessWidget {
   final Demande demande;
-  final Function onPress;
+  final VoidCallback onPress;
 
-  const DemandeItem({super.key, required this.demande, required this.onPress});
+  const DemandeItem({
+    super.key,
+    required this.demande,
+    required this.onPress,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(16),
-        child: Card(
-          elevation: 4,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(children: [
-                    const Icon(Icons.event, color: Colors.red),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Text(
-                        demande.date,
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
-                    )
-                  ]),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      demande.description,
-                      style: const TextStyle(fontSize: 20),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 5,
-                      softWrap: true,
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ));
+    return Card(
+      elevation: 4,
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: ListTile(
+        onTap: onPress,
+        leading: const Icon(Icons.event, color: Colors.red),
+        title: Text(
+          demande.date,
+        ),
+        subtitle: Text(
+          demande.description,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+      ),
+    );
   }
 }

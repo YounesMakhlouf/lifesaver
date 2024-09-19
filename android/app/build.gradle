@@ -23,10 +23,10 @@ if (flutterVersionName == null) {
 }
 apply plugin: 'com.google.gms.google-services'
 android {
-    ndkVersion "25.1.8937393"
     namespace "com.example.blood_donation"
     compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    // ndkVersion flutter.ndkVersion
+    ndkVersion "25.1.8937393"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
