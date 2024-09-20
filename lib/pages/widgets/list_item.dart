@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../../models/data_model.dart';
-
-class EventItem extends StatelessWidget {
-  final Event event;
+class ListItem extends StatelessWidget {
+  final String imageUrl;
+  final String title;
+  final String? subtitle;
   final VoidCallback onPress;
+  final Widget? trailingWidget;
 
-  const EventItem({super.key, required this.event, required this.onPress});
+  const ListItem({
+    super.key,
+    required this.imageUrl,
+    required this.title,
+    this.subtitle,
+    required this.onPress,
+    this.trailingWidget,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +32,10 @@ class EventItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Event Image
               AspectRatio(
                 aspectRatio: 16 / 9,
                 child: Image.asset(
-                  event.image,
+                  imageUrl,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -37,42 +44,23 @@ class EventItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Event Name
                     Text(
-                      event.name,
+                      title,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                     ),
                     const SizedBox(height: 8.0),
-                    // Event Location
-                    Row(
-                      children: [
-                        const Icon(Icons.location_on, color: Colors.red),
-                        const SizedBox(width: 4.0),
-                        Expanded(
-                          child: Text(
-                            event.location,
-                            style: Theme.of(context).textTheme.titleMedium,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8.0),
-                    // Event Date
-                    Row(
-                      children: [
-                        const Icon(Icons.event, color: Colors.red),
-                        const SizedBox(width: 4.0),
-                        Text(
-                          event.date,
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                      ],
-                    ),
+                    if (subtitle != null)
+                      Text(
+                        subtitle!,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
                   ],
                 ),
               ),
+              // Optional Trailing Widget (e.g., points, date)
+              if (trailingWidget != null) trailingWidget!,
             ],
           ),
         ),

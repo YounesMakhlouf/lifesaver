@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _pages = [
     const HomePage(),
     const LeaderboardPage(),
-    const GiftsPage(),
+    GiftsPage(rewards: rewards),
     const NotificationsPage(),
     ProfilePage(user: currentUser),
   ];
