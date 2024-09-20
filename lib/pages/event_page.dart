@@ -1,4 +1,4 @@
-import 'package:blood_donation/pages/participated_page.dart';
+import 'package:blood_donation/pages/participation_confirmed_page.dart';
 import 'package:flutter/material.dart';
 
 import '../models/data_model.dart';
@@ -107,7 +107,7 @@ class EventPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ParticipatedPage(),
+                            builder: (context) => const ParticipationConfirmedPage(),
                           ),
                         );
                       },

@@ -47,7 +47,6 @@ class HomePage extends StatelessWidget {
               return ListItem(
                   imageUrl: event.image,
                   title: event.name,
-                  subtitle: event.location,
                   onPress: () {
                     Navigator.push(
                       context,
@@ -57,7 +56,7 @@ class HomePage extends StatelessWidget {
                     );
                   },
                   trailingWidget: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
                         // Event Location
