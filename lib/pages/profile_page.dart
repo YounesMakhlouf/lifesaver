@@ -4,26 +4,28 @@ import 'package:blood_donation/pages/widgets/profile_header.dart';
 import 'package:flutter/material.dart';
 
 import '../models/data_model.dart';
+import '../services/auth.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class ProfilePage extends StatelessWidget {
+  final nUser user;
 
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
+  const ProfilePage({super.key, required this.user});
 
-class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    final FirebaseAuthService auth = FirebaseAuthService();
+    final currentUserUid = auth.getCurrentUser()?.uid;
+    final isCurrentUserProfile = user.uid == currentUserUid;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProfileHeader(currentUser: currentUser),
-            const ProfileActions(),
+            ProfileHeader(user: user),
+            if (isCurrentUserProfile) const ProfileActions(),
             const Divider(),
-            DonationHistorySection(donationHistory: currentUser.donationHistory)
+            DonationHistorySection(donationHistory: user.donationHistory)
           ],
         ),
       ),

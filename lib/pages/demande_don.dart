@@ -2,6 +2,7 @@ import 'package:blood_donation/pages/widgets/custom_form.dart';
 import 'package:flutter/material.dart';
 
 import '../blood_group_dropdown_menu.dart';
+import '../models/data_model.dart';
 import 'profile_page.dart';
 
 class DemandeDon extends StatefulWidget {
@@ -134,7 +135,7 @@ class DemandeDonState extends State<DemandeDon> {
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const ProfilePage()),
+        MaterialPageRoute(builder: (context) => ProfilePage(user: currentUser)),
       );
     }
   }

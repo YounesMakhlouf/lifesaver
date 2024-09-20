@@ -5,11 +5,11 @@ import '../../models/data_model.dart';
 import '../qr_code_page.dart';
 
 class ProfileHeader extends StatelessWidget {
-  final nUser currentUser;
+  final nUser user;
 
   const ProfileHeader({
     super.key,
-    required this.currentUser,
+    required this.user,
   });
 
   @override
@@ -58,14 +58,14 @@ class ProfileHeader extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 60,
-            backgroundImage: AssetImage(currentUser.image),
+            backgroundImage: AssetImage(user.image),
             backgroundColor: Colors.grey.shade200,
           ),
           Positioned(
             bottom: 0,
             right: 0,
             width: 40,
-            child: Score(points: currentUser.points),
+            child: Score(points: user.points),
           ),
         ],
       ),
@@ -89,7 +89,7 @@ class ProfileHeader extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                currentUser.name,
+                user.name,
                 style: Theme.of(context).textTheme.titleLarge,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -109,10 +109,10 @@ class ProfileHeader extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 8),
-        _buildInfoRow('CIN', '${currentUser.cin}', labelStyle, valueStyle),
-        _buildInfoRow('Âge', '${currentUser.age}', labelStyle, valueStyle),
-        _buildInfoRow('Groupe sanguin', currentUser.groupeSanguin, labelStyle,
-            valueStyle),
+        _buildInfoRow('CIN', '${user.cin}', labelStyle, valueStyle),
+        _buildInfoRow('Âge', '${user.age}', labelStyle, valueStyle),
+        _buildInfoRow(
+            'Groupe sanguin', user.groupeSanguin, labelStyle, valueStyle),
       ],
     );
   }

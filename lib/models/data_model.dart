@@ -1,4 +1,5 @@
 class nUser {
+  final String uid;
   String name;
   int cin;
   int age;
@@ -9,7 +10,8 @@ class nUser {
   List<Donation>? donationHistory;
 
   nUser(
-      {required this.name,
+      {required this.uid,
+      required this.name,
       required this.cin,
       required this.age,
       required this.groupeSanguin,
@@ -91,6 +93,7 @@ List<Donation> donationHistory = [
 ];
 
 nUser kotkot = nUser(
+    uid: '3pZS4AvTlnPFjnSG0niZ0t8k9Ew1',
     name: "Salma Bouabidi",
     image: "images/avatar2.png",
     cin: 11003345,
@@ -99,6 +102,7 @@ nUser kotkot = nUser(
     points: 20,
     donationHistory: donationHistory);
 nUser kotkot2 = nUser(
+    uid: '2',
     name: "Iron Man",
     image: "images/avatar.png",
     cin: 11003345,
@@ -106,6 +110,7 @@ nUser kotkot2 = nUser(
     groupeSanguin: "AB",
     points: 40);
 nUser kotkot3 = nUser(
+    uid: '3',
     name: "Ahmed Mohsen",
     image: "images/avatar3.png",
     cin: 11003345,
@@ -113,6 +118,7 @@ nUser kotkot3 = nUser(
     groupeSanguin: "AB",
     points: 60);
 nUser kotkot4 = nUser(
+    uid: '4',
     name: "Younes Makhlouf",
     image: "images/avatar.png",
     cin: 11003345,

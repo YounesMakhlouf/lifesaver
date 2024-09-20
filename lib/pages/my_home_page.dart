@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
     const LeaderboardPage(),
     const GiftsPage(),
     const NotificationsPage(),
-    const ProfilePage(),
+    ProfilePage(user: currentUser),
   ];
 
   @override

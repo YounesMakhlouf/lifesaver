@@ -18,7 +18,8 @@ class DemandesPage extends StatelessWidget {
             onPress: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ProfilePage()),
+                MaterialPageRoute(
+                    builder: (context) => ProfilePage(user: currentUser)),
               );
             });
       },
